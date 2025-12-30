@@ -1,0 +1,208 @@
+/**
+ * 露米娅幸存者 - 样式表
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-color: #111;
+    font-family: 'Microsoft YaHei', sans-serif;
+    color: white;
+    user-select: none;
+}
+
+canvas {
+    display: block;
+}
+
+/* UI层 */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.hud-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;
+}
+
+.hud-bottom {
+    margin-bottom: 20px;
+}
+
+.exp-bar-container {
+    width: 100%;
+    max-width: 400px;
+    height: 20px;
+    background: #333;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.exp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff00cc, #33ccff);
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* 叠加层 */
+#damage-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(255,0,0,0.6) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: 4;
+}
+
+#flash-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: 20;
+    mix-blend-mode: exclusion;
+}
+
+/* 屏幕覆盖层 */
+.screen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 角色选择 */
+.char-select-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.char-card {
+    width: 240px;
+    padding: 20px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    background: #222;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.char-card:hover {
+    transform: scale(1.05);
+    border-color: #ffcc00;
+    background: #333;
+}
+
+.char-desc {
+    font-size: 12px;
+    color: #aaa;
+    text-align: left;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* 升级卡片 */
+#upgrade-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+}
+
+.upgrade-card {
+    width: 200px;
+    height: 280px;
+    background: linear-gradient(135deg, #222, #444);
+    border: 2px solid #888;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.upgrade-card:hover {
+    transform: translateY(-5px);
+    border-color: gold;
+    box-shadow: 0 0 15px gold;
+}
+
+/* 大招文字 */
+#ult-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'KaiTi', serif;
+    font-size: 80px;
+    color: white;
+    text-shadow: 0 0 20px #fff, 4px 4px 0px #000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s;
+    z-index: 8;
+    white-space: nowrap;
+}
+
+/* 按钮 */
+button {
+    background: #444;
+    color: white;
+    border: 2px solid #666;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #555;
+    border-color: #888;
+}

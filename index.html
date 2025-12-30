@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>露米娅幸存者 - 重构版</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <!-- 伤害叠加层 -->
+    <div id="damage-overlay"></div>
+
+    <!-- 闪光叠加层 -->
+    <div id="flash-overlay"></div>
+
+    <!-- UI层 -->
+    <div id="ui-layer">
+        <div class="hud-top">
+            <div id="score-display">Score: 0</div>
+            <div id="level-display">Lv. 1</div>
+        </div>
+        <div class="hud-bottom">
+            <div style="margin-bottom: 5px; font-size: 20px;">HP: <span id="hp-text">10/10</span></div>
+            <div class="exp-bar-container">
+                <div class="exp-bar-fill" id="exp-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 大招文字 -->
+    <div id="ult-text">人鬼「未来永劫斩」</div>
+
+    <!-- 角色选择界面 -->
+    <div id="char-select-screen" class="screen-overlay">
+        <h1 style="color:white; font-size:40px; margin-bottom:30px;">选择角色</h1>
+        <div class="char-select-container">
+            <!-- 角色卡片将通过JS动态生成 -->
+        </div>
+    </div>
+
+    <!-- 升级界面 -->
+    <div id="upgrade-screen" class="screen-overlay hidden">
+        <h2 style="color: gold; margin-bottom: 20px; font-size:30px;">LEVEL UP!</h2>
+        <div id="upgrade-container"></div>
+    </div>
+
+    <!-- 游戏结束界面 -->
+    <div id="game-over-screen" class="screen-overlay hidden">
+        <h1>满身疮痍</h1>
+        <p id="final-score" style="font-size: 24px; color:#ddd;">Score: 0</p>
+        <button onclick="location.reload()" style="padding:10px 30px; font-size:20px; margin-top:20px; cursor:pointer;">返回标题</button>
+    </div>
+
+    <!-- 游戏画布 -->
+    <canvas id="gameCanvas"></canvas>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
